@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BdcGenerator", "BdcGenerator\BdcGenerator.csproj", "{A7200BFE-0F5A-4716-8E9E-EB33CA811A44}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A7200BFE-0F5A-4716-8E9E-EB33CA811A44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7200BFE-0F5A-4716-8E9E-EB33CA811A44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7200BFE-0F5A-4716-8E9E-EB33CA811A44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7200BFE-0F5A-4716-8E9E-EB33CA811A44}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {55ADCCF1-85EA-4235-AF66-2E59E35561E2}
+	EndGlobalSection
+EndGlobal
