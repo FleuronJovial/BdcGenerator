@@ -105,7 +105,7 @@ namespace BdcGenerator.Client.Views
                 _vm.PhotoFolder = path;
                 var folderName = System.IO.Path.GetFileName(path);
 
-                int imageFileCount = CountImageFiles(path);
+                int imageFileCount =_vm.CountImageFiles(path);
                 lblPhoto.Text = String.Format(SelectedPhotoLabel, folderName, imageFileCount);
 
                 if (imageFileCount > 0)
@@ -120,15 +120,7 @@ namespace BdcGenerator.Client.Views
             EnableStartButton();
         }
 
-        private int CountImageFiles(string path)
-        {
-            var d = new System.IO.DirectoryInfo(path);
 
-            var files = d.GetFiles();
-
-
-            return files.Count(x => x.Extension.Equals(".jpg", StringComparison.OrdinalIgnoreCase));
-        }
 
     }
 }

@@ -100,7 +100,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="SampleData\Output\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BdcGenerator\BdcGenerator.csproj">
       <Project>{469f8df6-3357-417b-9347-f1c4d57912a8}</Project>
@@ -113,6 +115,20 @@
     <Resource Include="Resources\logo.png" />
     <Resource Include="Resources\portraits.png" />
     <Resource Include="Resources\symbole-de-documents.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SampleData\Thumbnails\LPCpreview2_1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SampleData\Thumbnails\lpcpreview3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SampleData\Thumbnails\LPCpreview4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SampleData\Thumbnails\LPCpreview_1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

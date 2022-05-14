@@ -1,9 +1,17 @@
 ﻿using MvvmMicro;
+using System;
 
 namespace BdcGenerator.Client.ViewModels
 {
     internal class MainWindowVM : ObservableObject
     {
+        public MainWindowVM()
+        {
+            _generator = new Generator();
+        }
+
+        private readonly Generator _generator;
+
         private string _photoFolder;
         public string PhotoFolder
         {
@@ -18,6 +26,9 @@ namespace BdcGenerator.Client.ViewModels
             set { Set(ref _modelPath, value); }
         }
 
-
+        internal int CountImageFiles(string path)
+        {
+            return _generator.CountImageFiles(path);
+        }
     }
 }
