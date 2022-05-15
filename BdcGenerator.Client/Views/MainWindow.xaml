@@ -26,7 +26,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Image Source="/Resources/logo.png" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="5" Opacity="0.5" Grid.ColumnSpan="3"/>
+        <Image Source="/Resources/logo.png" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10" Opacity="0.5" Grid.ColumnSpan="3"/>
         <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" >
             <Button ToolTip="Dossier des photos miniatures" Click="OnImagesButtonClicked">
                 <Image Source="/Resources/portraits.png" Margin="5" />
@@ -46,6 +46,7 @@
                 <Button x:Name="GenerateBtn" ToolTip="Génération des bons de commande" IsEnabled="False" Click="OnGenerateButtonClicked">
                     <Image Source="/Resources/symbole-de-documents.png" Margin="5" />
                 </Button>
+            <TextBlock x:Name="LblGenerate" Text="" TextAlignment="Center"  Margin="20,5" Padding="3"/>
             </StackPanel>
         </Border>
 

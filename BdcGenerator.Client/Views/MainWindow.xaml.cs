@@ -27,6 +27,7 @@ namespace BdcGenerator.Client.Views
         private const string SelectedModelLabel = "Modèle: {0}";
         private const string NoPhotoLabel = "Aucun dossier photo sélectionné";
         private const string SelectedPhotoLabel = "{0} ({1} images)";
+        private const string GeneratedLabel = "{0} fichiers créés";
 
         private MainWindowVM _vm;
 
@@ -55,6 +56,7 @@ namespace BdcGenerator.Client.Views
                 LblModel.Background = new SolidColorBrush(Colors.LightGreen);
             }
 
+            EnableStartButton();
             //if (result.ToString() != string.Empty)
             //{
             //    //txtPath.Text = openFileDlg.SelectedPath;
@@ -73,24 +75,11 @@ namespace BdcGenerator.Client.Views
 
             if (result == System.Windows.Forms.DialogResult.OK)
             {
-               // var outputPath = openFileDlg.SelectedPath;
-               // var modelFileName = System.IO.Path.GetFileName(_vm.ModelPath);
+                var outputPath = openFileDlg.SelectedPath;
 
-               // var outFileName = System.IO.Path.Combine(outputPath, modelFileName);
+                var r = _vm.GenerateFiles(outputPath);
 
-               // File.Delete(outFileName);
-               // File.Copy(_vm.ModelPath, outFileName);
-
-               // var valuesToFill = new Content(
-               //new FieldContent("Référence", "Toto was here :)"));
-
-
-               // using (var outputDocument = new TemplateProcessor(outFileName)
-               //     .SetRemoveContentControls(true))
-               // {
-               //     outputDocument.FillContent(valuesToFill);
-               //     outputDocument.SaveChanges();
-               // }
+                LblGenerate.Text = string.Format(GeneratedLabel, r.FileCount);
             }
         }
         private void OnImagesButtonClicked(object sender, RoutedEventArgs e)
@@ -105,7 +94,7 @@ namespace BdcGenerator.Client.Views
                 _vm.PhotoFolder = path;
                 var folderName = System.IO.Path.GetFileName(path);
 
-                int imageFileCount =_vm.CountImageFiles(path);
+                int imageFileCount = _vm.CountImageFiles(path);
                 lblPhoto.Text = String.Format(SelectedPhotoLabel, folderName, imageFileCount);
 
                 if (imageFileCount > 0)

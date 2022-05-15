@@ -361,3 +361,12 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/BdcGenerator.Client/SampleData/Output/SampleTemplate.docx
+/BdcGenerator.Client/SampleData/Output/LPCpreview_1.docx
+/BdcGenerator.Client/SampleData/Output/LPCpreview4.docx
+/BdcGenerator.Client/SampleData/Output/lpcpreview3.docx
+/BdcGenerator.Client/SampleData/Output/LPCpreview2_1.docx
+/BdcGenerator.Client/SampleData/Output/IMG_0356.docx
+/BdcGenerator.Client/SampleData/Output/IMG_0351.docx
+/BdcGenerator.Client/SampleData/Output/IMG_0347.docx
+/BdcGenerator.Client/SampleData/Output/IMG_0342.docx

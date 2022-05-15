@@ -30,5 +30,17 @@ namespace BdcGenerator.Client.ViewModels
         {
             return _generator.CountImageFiles(path);
         }
+
+        internal GenerationResponse GenerateFiles(string outputPath)
+        {
+            return _generator.GenerateAsync(new GenerationRequest
+            {
+                ModelPath = ModelPath,
+                PhotoFolder = PhotoFolder,
+                OutputFolder = outputPath
+            }).GetAwaiter().GetResult();
+
+       
+        }
     }
 }

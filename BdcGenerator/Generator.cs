@@ -11,32 +11,55 @@ namespace BdcGenerator
     public interface IGenerator
     {
         int CountImageFiles(string path);
-        Task GenerateAsync(GenerationRequest request);
+        Task<GenerationResponse> GenerateAsync(GenerationRequest request);
     }
     public class Generator : IGenerator
     {
         private static readonly string[] ImageExtensions = new[] { ".jpg", ".png" };
+        private const string ReferenceTag = "Reference";
+        private const string PictureTag = "Picture";
 
-        public async Task GenerateAsync(GenerationRequest request)
+        public async Task<GenerationResponse> GenerateAsync(GenerationRequest request)
         {
             var outputPath = request.OutputFolder;
             var modelFileName = System.IO.Path.GetFileName(request.ModelPath);
 
-            var outFileName = System.IO.Path.Combine(outputPath, modelFileName);
+            var pictureFolder = new System.IO.DirectoryInfo(request.PhotoFolder);
+            var pictureFiles = pictureFolder.GetFiles().Where(x => IsImageFileName(x.Extension));
 
-            File.Delete(outFileName);
-            File.Copy(request.ModelPath, outFileName);
+            var generatedCount = 0;
 
-            var valuesToFill = new Content(
-           new FieldContent("Référence", "Toto was here :)"));
-
-
-            using (var outputDocument = new TemplateProcessor(outFileName)
-                .SetRemoveContentControls(true))
+            foreach (var pictureFile in pictureFiles)
             {
-                outputDocument.FillContent(valuesToFill);
-                outputDocument.SaveChanges();
+                var imageName = pictureFile.Name.Substring(0, pictureFile.Name.Length - pictureFile.Extension.Length);
+                var outFileName = System.IO.Path.Combine(outputPath, imageName + ".docx");
+
+
+                File.Delete(outFileName);
+                File.Copy(request.ModelPath, outFileName);
+
+                var valuesToFill = new Content(
+                   new FieldContent(ReferenceTag, imageName),
+                   new ImageContent(PictureTag, File.ReadAllBytes(pictureFile.FullName))
+                   );
+
+                using (var outputDocument = new TemplateProcessor(outFileName)
+                    .SetRemoveContentControls(true))
+                {
+                    outputDocument.FillContent(valuesToFill);
+                    outputDocument.SaveChanges();
+                }
+
+                generatedCount++;
             }
+
+
+
+            return new GenerationResponse
+            {
+                OutputFolder = outputPath,
+                FileCount = generatedCount
+            };
         }
 
         public int CountImageFiles(string path)
