@@ -1,6 +1,7 @@
 ﻿using BdcGenerator.Client.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -80,6 +81,7 @@ namespace BdcGenerator.Client.Views
                 var r = _vm.GenerateFiles(outputPath);
 
                 LblGenerate.Text = string.Format(GeneratedLabel, r.FileCount);
+                Process.Start(r.OutputFolder);
             }
         }
         private void OnImagesButtonClicked(object sender, RoutedEventArgs e)
