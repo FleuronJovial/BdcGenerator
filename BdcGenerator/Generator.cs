@@ -32,18 +32,24 @@ namespace BdcGenerator
             foreach (var pictureFile in pictureFiles)
             {
                 var imageName = pictureFile.Name.Substring(0, pictureFile.Name.Length - pictureFile.Extension.Length);
-                var outFileName = System.IO.Path.Combine(outputPath, imageName + ".docx");
 
+                var templateFileName = System.IO.Path.GetFileName(request.ModelPath);
 
-                File.Delete(outFileName);
-                File.Copy(request.ModelPath, outFileName);
+                var outFileName = templateFileName.Contains("Template")
+                   ? templateFileName.Replace("Template", imageName)
+                   : $"{templateFileName}_{imageName}.docx";
+
+                var outFilePath = System.IO.Path.Combine(outputPath, outFileName );
+
+                File.Delete(outFilePath);
+                File.Copy(request.ModelPath, outFilePath);
 
                 var valuesToFill = new Content(
                    new FieldContent(ReferenceTag, imageName),
                    new ImageContent(PictureTag, File.ReadAllBytes(pictureFile.FullName))
                    );
 
-                using (var outputDocument = new TemplateProcessor(outFileName)
+                using (var outputDocument = new TemplateProcessor(outFilePath)
                     .SetRemoveContentControls(true))
                 {
                     outputDocument.FillContent(valuesToFill);
