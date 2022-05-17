@@ -8,7 +8,7 @@ As this repository is only meant for solving a specific business case, the follo
 
 Pour installer l'application, il faut exécuter **Setup.exe**
 
-![Installation](Images\Install_0.png)
+![Installation](Images/Install_0.png)
 
 Il est possible que Windows :
 - demande confirmation car l'dentité de l'éditeur n'est pas confirmmée
@@ -21,5 +21,5 @@ Il est possible que Windows :
 2. Sélection du dossier contenant les photos miniatures
 3. Sélection du dossier de sortie + Génération des documents
 
-![alt text](Images\State_0.png)
+![alt text](Images/State_0.png)
 
