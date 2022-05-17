@@ -1,5 +1,6 @@
 ﻿using MvvmMicro;
 using System;
+using System.Windows.Input;
 
 namespace BdcGenerator.Client.ViewModels
 {
@@ -33,14 +34,22 @@ namespace BdcGenerator.Client.ViewModels
 
         internal GenerationResponse GenerateFiles(string outputPath)
         {
-            return _generator.GenerateAsync(new GenerationRequest
+            Mouse.OverrideCursor = Cursors.Wait;
+            try
             {
-                ModelPath = ModelPath,
-                PhotoFolder = PhotoFolder,
-                OutputFolder = outputPath
-            }).GetAwaiter().GetResult();
+                return _generator.GenerateAsync(new GenerationRequest
+                {
+                    ModelPath = ModelPath,
+                    PhotoFolder = PhotoFolder,
+                    OutputFolder = outputPath
+                }).GetAwaiter().GetResult();
+            }
+            finally
+            {
+                Mouse.OverrideCursor = null;
+            }
 
-       
+
         }
     }
 }

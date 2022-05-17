@@ -58,11 +58,6 @@ namespace BdcGenerator.Client.Views
             }
 
             EnableStartButton();
-            //if (result.ToString() != string.Empty)
-            //{
-            //    //txtPath.Text = openFileDlg.SelectedPath;
-            //}
-            //root = txtPath.Text;
         }
 
         private void EnableStartButton()
@@ -72,6 +67,7 @@ namespace BdcGenerator.Client.Views
         private void OnGenerateButtonClicked(object sender, RoutedEventArgs e)
         {
             FolderBrowserDialog openFileDlg = new FolderBrowserDialog();
+            openFileDlg.SelectedPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             var result = openFileDlg.ShowDialog();
 
             if (result == System.Windows.Forms.DialogResult.OK)
@@ -87,6 +83,8 @@ namespace BdcGenerator.Client.Views
         private void OnImagesButtonClicked(object sender, RoutedEventArgs e)
         {
             FolderBrowserDialog openFileDlg = new FolderBrowserDialog();
+
+            openFileDlg.SelectedPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             var result = openFileDlg.ShowDialog();
 
             if (result == System.Windows.Forms.DialogResult.OK)
