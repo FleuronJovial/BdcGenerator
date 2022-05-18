@@ -49,16 +49,17 @@ A savoir :
 A savoir :
 - les photos sont prises telles quelles et insérées dans le document, donc si la taille n'est pas celle attendue par le modèle, le résultat sera surprenant
 
+![alt text](Images/State_2.png)
+
 ## Génération des documents
 
 Pour chaque photo trouvée dans le dossier des miniatures (photos de type .jpg ou .png), le generateur va :
 - remplacer le "ContentControl Image" ayant le tag "Picture" par la photo miniature
 - remplacer le "ContentControl Text" ayant le tag "Reference" par le nom de la photo
 
+![alt text](Images/State_3.png)
+
 A savoir :
 - Si le nom du modèle est du type XXXXXX_Template.docx, alors le nom des fichiers créés sera XXXXXX_NomPhoto.docx
 - Un bon de commande est généré par photo (par opposition à un fichier contenant tous les bons de commande)
 
-# Modèle de document 
-# Spécifications
-## Créer un modèle à partir d'un document docx
