@@ -6,6 +6,16 @@ As this repository is only meant for solving a specific business case, the follo
 
 # Installation
 
+Sur le principe, il faut :
+1. Télécharger le fichier BrcGenerator_x_x_x.zip
+1. Décompresser le fichier dans un répertoire local
+1. Exécuter Setup.exe
+
+
+![Installation](Images/github1.png)
+![Installation](Images/github2.png)
+![Installation](Images/github3.png)
+
 Pour installer l'application, il faut exécuter **Setup.exe**
 
 ![Installation](Images/Install_0.png)

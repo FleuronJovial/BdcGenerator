@@ -14,6 +14,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BdcGenerator", "BdcGenerato
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{DF422BC8-2512-4E20-8C5C-8927CE2FE2AB}"
 	ProjectSection(SolutionItems) = preProject
+		Images\github1.png = Images\github1.png
+		Images\github2.png = Images\github2.png
+		Images\github3.png = Images\github3.png
 		Images\Install_0.png = Images\Install_0.png
 		Images\State_0.png = Images\State_0.png
 		Images\State_2.png = Images\State_2.png
